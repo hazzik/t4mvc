@@ -668,10 +668,30 @@ void PrepareDataToRender(TextTransformation tt) {
 
 Project GetViewsProject(DTE dte) {
    foreach (Project proj in dte.Solution.Projects) {
-        if (proj.Name == ViewsProject) {
-            return proj;
+        Project proj2 = GetViewsProjectRecursive(proj);
+        if (proj2 != null) {
+            return proj2;
         }
     }     
+    return null;
+}
+
+Project GetViewsProjectRecursive(Project proj) {
+    if (proj == null) {
+        return null;
+    }
+
+    if (proj.Name == ViewsProject) {
+        return proj;
+    }
+
+    foreach(ProjectItem projItem in proj.ProjectItems) {
+        Project subProj = GetViewsProjectRecursive(projItem.SubProject);
+        if (subProj != null) {
+            return subProj;
+        }
+    }
+
     return null;
 }
 
