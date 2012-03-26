@@ -664,6 +664,7 @@ void PrepareDataToRender(TextTransformation tt) {
     ViewProject = GetViewsProject(Dte);
     AppRoot = Path.GetDirectoryName(ViewProject.FullName) + '\\';
     ProcessAreas(ViewProject);
+    ProcessAreas(Project);
 }
 
 Project GetViewsProject(DTE dte) {
