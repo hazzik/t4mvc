@@ -6,6 +6,7 @@ to fork the 'official' template in order to achieve what they want.
  
 */
 
+const string ViewsProject = "MvcApplication";
 
 // The namespace used by some of T4MVC's generated code
 const string T4MVCNamespace = "T4MVC";
