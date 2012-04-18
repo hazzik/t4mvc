@@ -1,6 +1,6 @@
 ﻿<#
 /*
-T4MVC Version 2.8
+T4MVC Version 2.8.1
 Find latest version and documentation at http://mvccontrib.codeplex.com/wikipage?title=T4MVC
 Discuss on StackOverflow or on the MVC forum (http://forums.asp.net/1146.aspx)
 
@@ -427,7 +427,7 @@ namespace <#=controller.Namespace #> {
         [NonAction]
         [<#= GeneratedCode #>, DebuggerNonUserCode]
         public <#=method.ReturnTypeFullName #> <#=method.Name #>() {
-            return new T4MVC_<#=method.ReturnType #>(Area, Name, ActionNames.<#=method.ActionName #>);
+            return new T4MVC_<#=method.ReturnType #>(Area, Name, ActionNames.<#=method.ActionName #><# if (method.ActionUrlHttps) {#>, "https"<#}#>);
         }
 <#} #>
 
